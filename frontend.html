@@ -2,17 +2,64 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+
         <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
         <title id="title"></title>
         <link rel="stylesheet" href="styles.css">
 
+        <style>
+          .tracks-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+          }
+          .tracks-container > div{
+            width: 300px;
+            margin: 0px;
+            padding: 5px;
+            background-color: rgba(156, 155, 155, 0.137) ;
+          }
+          /* .tracks-container > div img{
+            width: 300px;
+          } */
+          .tracks-container > div > div> h5{
+            font-weight: bolder;
+            color: rgb(255, 255, 255);
+          }
+
+        </style>
+
     </head>
 
+    <script>
+      fetch('https://web-it-like-spider.onrender.com/hackathon/home/',{
+        method:'GET',
+      }).then(response => response.json())
+          .then(data=> {
+            document.getElementById('texttitle').innerHTML=data.name;
+            document.getElementById('contact').innerHTML=data.contact_number;
+            document.getElementById('hack_start').innerHTML=data.start_date;
+            document.getElementById('hack_end').innerHTML=data.end_date;
+            document.getElementById('reg_start').innerHTML=data.registration_start_date;
+            document.getElementById('reg_end').innerHTML=data.registration_end_date;
+            document.getElementById('ieChapter').innerHTML=data.organizers[0].organizer_info;
+            document.getElementById('csiChapter').innerHTML=data.organizers[1].organizer_info;
+            document.getElementById('announce-2').innerHTML=data.announcements[1].announcement_text;
+            document.getElementById('announce-1').innerHTML=data.announcements[0].announcement_text;
+            const [round1, round2,round3] = data.rounds;
+            document.getElementById('round1-no').innerHTML = round1.round_number;
+            document.getElementById('round2-no').innerHTML = round2.round_number;
+            document.getElementById('round3-no').innerHTML = round3.round_number;
+            document.getElementById('round1-date').innerHTML = round1.round_date;
+            document.getElementById('round2-date').innerHTML = round2.round_date;
+            document.getElementById('round3-date').innerHTML = round3.round_date;
 
+        
+
+          })
+    </script>
 
 
     <body>
@@ -24,12 +71,12 @@
                 <div class="nav-links">
                     
                     <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Timeline</a></li>
-                        <li><a href="">Track</a></li>
-                        <li><a href="">Clubs</a></li>
-                        <li><a href="">FAQ</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#timeline">Timeline</a></li>
+                        <li><a href="#track">Track</a></li>
+                        <li><a href="#clubs">Clubs</a></li>
+                        <li><a href="#faq">FAQ</a></li>
             
                     </ul>
                 </div>
@@ -47,8 +94,10 @@
        <!-- <div class="img">
           <img src="/images/SeekPng.com_computer-vector-png_2315426.png">   
         </div>-->
+   
         <div class="texttitle1">
           <h1 id="texttitle"></h1>
+          <br>
           <h4>Ignite your creativity!
           Register today and hack your way to VICTORY!</h4>
         </div> 
@@ -57,7 +106,7 @@
           <div class="container">
             <!-- Content goes here -->
             <button id="chatIcon">
-              <img class="logochat" src="/images/1691600708messenger-logo-png.png" alt="Chat Icon" />
+              <img class="logochat" src="images/1691600708messenger-logo-png.png" alt="Chat Icon" />
             </button>
           </div>
           
@@ -129,8 +178,8 @@
     <!--timeline-->
 
 
-    <h2 class="h2lone">TIMELINE</h2>
-    <section class="dates">
+    <h2 class="h2lone">SAVE THE DATE</h2>
+    <section id="timeline" class="dates">
       <div class="timeline">
         <div class="checkpoint">
           <div>
@@ -176,18 +225,18 @@
         </div>
       </div>
     </section>
-
+<br><br>
     <section id="track">
-      <!--Track-->
       <h2 class="h2lone">TRACKS</h2>
-     
+<br><br>
+      <!--Track-->
       <div class="tracks-container">
         <div class="card">
           <img src="devlopment.jpg" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">Development</h5>
             <p class="card-text" style="color: rgb(110, 110, 110);">A track to develop Websites and Mobile Apps based on the problem statements we have for you, in line with the theme.Generate creative ideas and solutions for addressing each problem statement.</p>
-            <a href="#" class="btn btn-dark"  style="background-color: #ff004c;">Know More</a>
+            <a href="https://www.techtarget.com/searchcloudcomputing/definition/web-application-development" class="btn btn-dark" style="background-color: rgba(0, 167, 112, 0.349);">Know More</a>
           </div>
         </div>
 
@@ -196,7 +245,7 @@
           <div class="card-body">
             <h5 class="card-title">Blockchain</h5>
             <p class="card-text" style="color: rgb(110, 110, 110);">This track is for Web3 enthusiasts to turn ideas into actual projects. Opportunity to work on blockchain-based problem statements focussing on different areas across NFTs, DeFi to pursue a more sustainable future.</p>
-            <a href="" class="btn btn-dark"  style="background-color: #ff004c;">Know More</a>
+            <a href="https://en.wikipedia.org/wiki/Blockchain" class="btn btn-dark" style="background-color: rgba(0, 167, 112, 0.349);">Know More</a>
           </div>
         </div>
 
@@ -205,7 +254,7 @@
           <div class="card-body">
             <h5 class="card-title">IOT</h5>
             <p class="card-text" style="color: rgb(110, 110, 110);">This track is for IOT enthusiasts to turn their ideas into reality.Ready to connect with sensors, software, and other technologies to connect and exchange data with other devices or systems over the internet.</p>
-            <a href="" class="btn btn-dark"  style="background-color: #ff004c;">Know More</a>
+            <a href="https://www.techtarget.com/iotagenda/definition/Internet-of-Things-IoT" class="btn btn-dark" style="background-color: rgba(0, 167, 112, 0.349);">Know More</a>
           </div>
         </div>
 
@@ -214,35 +263,38 @@
           <div class="card-body">
             <h5 class="card-title">AI/ML</h5>
             <p class="card-text" style="color: rgb(110, 110, 110);">A track for all ML enthusiasts out there. It brings together participants to solve real-data challenges based on Sustainability by applying Machine learning. It aims to bring to life creative solutions to leverage the power of AI to amplify human capability.</p>
-            <a href="" class="btn btn-dark"  style="background-color: #ff004c;">Know More</a>
+            <a href="https://www.techtarget.com/searchenterpriseai/definition/machine-learning-ML" class="btn btn-dark" style="background-color: rgba(0, 167, 112, 0.349);">Know More</a>
           </div>
         </div>
       </div>
-
+    </section>
     <!--clubs-->
 
-
-        <h2 class="h2lone">CLUBS</h2>
-        <div class="club">
-          <div class="ie">
-              <h3 id="ieChapter"></h3>
-              <img src="/images/1200px-Institution_of_Engineers_(India)_Logo.svg.png" class="ins">
-
-          </div>
+<br><br>
+        <h2 class="h2lone">ORGANIZERS</h2>
+        <br>
+        <div id="clubs" class="club">
+          
           <div class="csi">
               <h3 id="csiChapter"></h3>
-              <img src="/images/csilogo.png" class="ins">
+              <img src="images/csilogo.png" class="ins">
 
           </div>
+          <br>
+          <div class="ie">
+            <h3 id="ieChapter"></h3>
+            <img src="images/1200px-Institution_of_Engineers_(India)_Logo.svg.png" class="ins">
+
+        </div>
         </div>
 
     <!--contacts-->
-
+<br><br>
     <section class="contact">
       <h3>Any Queries</h3>
       <div class="contact-no">       
         <div id="contact"></div>
-        <img src="/images/contact1.png" alt="contact">
+        <img src="images/contact1.png" alt="contact">
       </div>
     </section>
       <br>
@@ -276,36 +328,10 @@
     </section>
 
     <script>
-
-fetch('https://web-it-like-spider.onrender.com/hackathon/home/',{
-        method:'GET',
-      }).then(response => response.json())
-          .then(data=> {
-            document.getElementById('texttitle').innerHTML=data.name;
-            document.getElementById('contact').innerHTML=data.contact_number;
-            document.getElementById('hack_start').innerHTML=data.start_date;
-            document.getElementById('hack_end').innerHTML=data.end_date;
-            document.getElementById('reg_start').innerHTML=data.registration_start_date;
-            document.getElementById('reg_end').innerHTML=data.registration_end_date;
-            document.getElementById('ieChapter').innerHTML=data.organizers[0].organizer_info;
-            document.getElementById('csiChapter').innerHTML=data.organizers[1].organizer_info;
-            document.getElementById('announce-2').innerHTML=data.announcements[1].announcement_text;
-            document.getElementById('announce-1').innerHTML=data.announcements[0].announcement_text;
-            const [round1, round2,round3] = data.rounds;
-            document.getElementById('round1-no').innerHTML = round1.round_number;
-            document.getElementById('round2-no').innerHTML = round2.round_number;
-            document.getElementById('round3-no').innerHTML = round3.round_number;
-            document.getElementById('round1-date').innerHTML = round1.round_date;
-            document.getElementById('round2-date').innerHTML = round2.round_date;
-            document.getElementById('round3-date').innerHTML = round3.round_date;
-
-        
-
-          })
       
         const registerButton = document.getElementById("registerButton");
         registerButton.addEventListener("click", function () {
-            window.location.href = "/register.html";
+            window.location.href = "register.html";
         });
         var acc = document.getElementsByClassName("accordion");
         var i;
@@ -324,6 +350,13 @@ fetch('https://web-it-like-spider.onrender.com/hackathon/home/',{
             }
           });
         }
+        document.addEventListener('DOMContentLoaded', function () {
+            new fullpage('#fullpage', {
+                navigation: true,
+                responsiveHeight:'100vh',
+                //sectionsColor: ['#ff5f45', '#0798ec', '#fc6c7c'],
+            });
+        });
 
         const chatIcon = document.getElementById('chatIcon');
   const chatbotWidget = document.getElementById('chatbot-widget');
