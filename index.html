@@ -12,33 +12,7 @@
 
     </head>
 
-    <script>
-      fetch('https://web-it-like-spider.onrender.com/hackathon/home/',{
-        method:'GET',
-      }).then(response => response.json())
-          .then(data=> {
-            document.getElementById('texttitle').innerHTML=data.name;
-            document.getElementById('contact').innerHTML=data.contact_number;
-            document.getElementById('hack_start').innerHTML=data.start_date;
-            document.getElementById('hack_end').innerHTML=data.end_date;
-            document.getElementById('reg_start').innerHTML=data.registration_start_date;
-            document.getElementById('reg_end').innerHTML=data.registration_end_date;
-            document.getElementById('ieChapter').innerHTML=data.organizers[0].organizer_info;
-            document.getElementById('csiChapter').innerHTML=data.organizers[1].organizer_info;
-            document.getElementById('announce-2').innerHTML=data.announcements[1].announcement_text;
-            document.getElementById('announce-1').innerHTML=data.announcements[0].announcement_text;
-            const [round1, round2,round3] = data.rounds;
-            document.getElementById('round1-no').innerHTML = round1.round_number;
-            document.getElementById('round2-no').innerHTML = round2.round_number;
-            document.getElementById('round3-no').innerHTML = round3.round_number;
-            document.getElementById('round1-date').innerHTML = round1.round_date;
-            document.getElementById('round2-date').innerHTML = round2.round_date;
-            document.getElementById('round3-date').innerHTML = round3.round_date;
 
-        
-
-          })
-    </script>
 
 
     <body>
@@ -302,6 +276,32 @@
     </section>
 
     <script>
+
+fetch('https://web-it-like-spider.onrender.com/hackathon/home/',{
+        method:'GET',
+      }).then(response => response.json())
+          .then(data=> {
+            document.getElementById('texttitle').innerHTML=data.name;
+            document.getElementById('contact').innerHTML=data.contact_number;
+            document.getElementById('hack_start').innerHTML=data.start_date;
+            document.getElementById('hack_end').innerHTML=data.end_date;
+            document.getElementById('reg_start').innerHTML=data.registration_start_date;
+            document.getElementById('reg_end').innerHTML=data.registration_end_date;
+            document.getElementById('ieChapter').innerHTML=data.organizers[0].organizer_info;
+            document.getElementById('csiChapter').innerHTML=data.organizers[1].organizer_info;
+            document.getElementById('announce-2').innerHTML=data.announcements[1].announcement_text;
+            document.getElementById('announce-1').innerHTML=data.announcements[0].announcement_text;
+            const [round1, round2,round3] = data.rounds;
+            document.getElementById('round1-no').innerHTML = round1.round_number;
+            document.getElementById('round2-no').innerHTML = round2.round_number;
+            document.getElementById('round3-no').innerHTML = round3.round_number;
+            document.getElementById('round1-date').innerHTML = round1.round_date;
+            document.getElementById('round2-date').innerHTML = round2.round_date;
+            document.getElementById('round3-date').innerHTML = round3.round_date;
+
+        
+
+          })
       
         const registerButton = document.getElementById("registerButton");
         registerButton.addEventListener("click", function () {
